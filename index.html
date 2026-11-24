@@ -84,4 +84,717 @@
       color: var(--primary);
     }
 
-    .author
+    .author-item span {
+      color: var(--accent);
+      font-family: monospace;
+      font-size: 0.92rem;
+    }
+
+    nav.tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1rem;
+      background: rgba(15, 23, 42, 0.95);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+    }
+
+    nav.tabs button {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 0.55rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    nav.tabs button:hover {
+      border-color: var(--primary);
+    }
+
+    nav.tabs button.active {
+      background: var(--primary);
+      color: #020617;
+      border-color: var(--primary);
+    }
+
+    main {
+      max-width: 1020px;
+      margin: 1.5rem auto;
+      padding: 0 1.25rem;
+    }
+
+    section.panel {
+      display: none;
+      animation: fadeIn 0.25s ease;
+    }
+
+    section.panel.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.35rem;
+    }
+
+    .card h2, .card h3 {
+      color: var(--primary);
+      margin-bottom: 0.65rem;
+      font-size: 1.2rem;
+    }
+
+    .card p, .card li {
+      color: #e2e8f0;
+      font-size: 0.95rem;
+    }
+
+    .card ul {
+      padding-left: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .card li {
+      margin-bottom: 0.4rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.7rem;
+      text-align: left;
+    }
+
+    th {
+      background: #0f172a;
+      color: var(--primary);
+    }
+
+    tr:nth-child(even) {
+      background: rgba(15, 23, 42, 0.35);
+    }
+
+    .sim-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: 1rem 0;
+      align-items: center;
+    }
+
+    .sim-btn {
+      background: var(--surface-alt);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 0.5rem 0.9rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .sim-btn.selected {
+      background: var(--accent);
+      color: #020617;
+      border-color: var(--accent);
+    }
+
+    canvas {
+      width: 100%;
+      max-height: 280px;
+      background: #020617;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: block;
+    }
+
+    .slider-group {
+      margin-top: 1rem;
+    }
+
+    .slider-group input[type="range"] {
+      width: 100%;
+      accent-color: var(--primary);
+      margin-top: 0.4rem;
+    }
+
+    .metric-pill {
+      display: inline-block;
+      margin-top: 0.75rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: 8px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      font-size: 0.9rem;
+    }
+
+    .quiz-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .quiz-q {
+      font-weight: 600;
+      margin-bottom: 0.85rem;
+      color: #fff;
+    }
+
+    .options {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .option-btn {
+      text-align: left;
+      background: #0f172a;
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 0.65rem 0.9rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.92rem;
+      transition: all 0.15s ease;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      border-color: var(--primary);
+      background: #172554;
+    }
+
+    .option-btn.correct {
+      background: rgba(34, 197, 94, 0.2);
+      border-color: var(--success);
+      color: #bbf7d0;
+    }
+
+    .option-btn.wrong {
+      background: rgba(239, 68, 68, 0.2);
+      border-color: var(--danger);
+      color: #fecaca;
+    }
+
+    .feedback {
+      margin-top: 0.65rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+      display: none;
+    }
+
+    .quiz-summary {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      border: 1px solid var(--primary);
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-align: center;
+      margin-top: 1.25rem;
+    }
+
+    .reset-btn {
+      margin-top: 0.75rem;
+      background: var(--primary);
+      color: #020617;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="badge">Ingeniería y Ciencia de Materiales</div>
+    <h1>Materiales Cerámicos y Vítreos</h1>
+    <p class="subtitle">
+      Recurso interactivo sobre estructura atómica, enlaces iónico-covalentes, procesamiento térmico, propiedades mecánicas y evaluación de conocimientos.
+    </p>
+    <div class="authors-box">
+      <div class="author-item">
+        <strong>Juan David Cáceres Ramírez</strong> — Cód. <span>1981516</span>
+      </div>
+      <div class="author-item">
+        <strong>Salomé Lara Blanco</strong> — Cód. <span>1981492</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button class="active" onclick="showTab('fundamentos', this)">1. Fundamentos y Estructura</button>
+    <button onclick="showTab('simulador', this)">2. Simulador Atómico y Térmico</button>
+    <button onclick="showTab('clasificacion', this)">3. Clasificación y Aplicaciones</button>
+    <button onclick="showTab('test', this)">4. Test Interactivo</button>
+  </nav>
+
+  <main>
+    <section id="fundamentos" class="panel active">
+      <div class="grid-2">
+        <div class="card">
+          <h2>¿Qué son los Materiales Cerámicos?</h2>
+          <p>
+            Son sólidos inorgánicos no metálicos formados por elementos metálicos y no metálicos unidos principalmente mediante <strong>enlaces iónicos y covalentes</strong>. Poseen ordenamiento atómico cristalino o semicristalino de largo alcance.
+          </p>
+          <ul>
+            <li><strong>Alta refractariedad:</strong> Soportan temperaturas elevadas sin fundirse (ej. Al₂O₃ &gt; 2000 °C).</li>
+            <li><strong>Dureza y rigidez extrema:</strong> Alta resistencia al desgaste y módulo elástico elevado.</li>
+            <li><strong>Fragilidad inherente:</strong> Baja tenacidad a la fractura por ausencia de deslizamiento fácil de dislocaciones.</li>
+            <li><strong>Aislantes:</strong> Baja conductividad eléctrica y térmica en la mayoría de formulaciones.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>¿Qué son los Materiales Vítreos?</h2>
+          <p>
+            Son sólidos inorgánicos amorfos (no cristalinos) obtenidos generalmente por enfriamiento rápido desde el estado líquido fundido, evitando la cristalización al cruzar la <strong>temperatura de transición vítrea (Tg)</strong>.
+          </p>
+          <ul>
+            <li><strong>Red aleatoria continua:</strong> Basada comúnmente en tetraedros de sílice (SiO₄⁴⁻) sin periodicidad a largo alcance.</li>
+            <li><strong>Isotropía:</strong> Propiedades ópticas y mecánicas uniformes en todas las direcciones.</li>
+            <li><strong>Transparencia óptica:</strong> Ausencia de bordes de grano que dispersen la luz visible.</li>
+            <li><strong>Modificadores de red:</strong> Óxidos como Na₂O y CaO reducen la viscosidad y facilitan el moldeo.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Comparativa Técnica: Cerámicos Cristalinos vs. Vítreos</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Propiedad / Característica</th>
+              <th>Cerámicos Cristalinos</th>
+              <th>Materiales Vítreos (Amorfos)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Estructura atómica</strong></td>
+              <td>Red cristalina periódica ordenada</td>
+              <td>Red amorfa desordenada (sin orden a largo alcance)</td>
+            </tr>
+            <tr>
+              <td><strong>Transición térmica</strong></td>
+              <td>Punto de fusión definido (Tm)</td>
+              <td>Rango de transición vítrea (Tg) con cambio gradual de viscosidad</td>
+            </tr>
+            <tr>
+              <td><strong>Comportamiento óptico</strong></td>
+              <td>Generalmente opacos o translúcidos (dispersión en bordes de grano)</td>
+              <td>Transparentes en el espectro visible (si no hay fase secundaria)</td>
+            </tr>
+            <tr>
+              <td><strong>Procesamiento típico</strong></td>
+              <td>Polvos + conformado + sinterización en estado sólido/líquido</td>
+              <td>Fusión completa + soplado, flotado o prensado + recocido/temple</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="simulador" class="panel">
+      <div class="grid-2">
+        <div class="card">
+          <h2>Visualizador de Red Atómica (Silicatos)</h2>
+          <p>Alterna entre el ordenamiento cristalino del cuarzo y la red amorfa del vidrio de sílice fundida.</p>
+          <div class="sim-controls">
+            <button class="sim-btn selected" id="btnCrystal" onclick="setStructure('crystal')">Red Cristalina (Cuarzo)</button>
+            <button class="sim-btn" id="btnGlass" onclick="setStructure('glass')">Red Vítrea Amorfa (Vidrio)</button>
+          </div>
+          <canvas id="atomicCanvas" width="440" height="250"></canvas>
+          <p id="structureDesc" class="metric-pill">
+            <strong>Orden de largo alcance:</strong> Tetraedros SiO₄ dispuestos en patrón hexagonal periódico.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>Curva Volumen Específico vs. Temperatura</h2>
+          <p>Simula el enfriamiento desde el fundido para observar el paso por Tm (cristalización) o Tg (vitrificación).</p>
+          <div class="slider-group">
+            <label for="tempSlider"><strong>Temperatura del sistema:</strong> <span id="tempVal">1400</span> °C</label>
+            <input type="range" id="tempSlider" min="200" max="1600" value="1400" oninput="updateThermo()" />
+          </div>
+          <canvas id="thermoCanvas" width="440" height="230" style="margin-top: 0.75rem;"></canvas>
+          <div id="thermoState" class="metric-pill">
+            Estado: <strong>Líquido fundido de baja viscosidad</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="clasificacion" class="panel">
+      <div class="grid-2">
+        <div class="card">
+          <h3>Cerámicos Tradicionales</h3>
+          <ul>
+            <li><strong>Arcillas y porcelanas:</strong> Silicatos hidratados de aluminio (caolinita) empleados en loza sanitaria, aisladores eléctricos y recubrimientos.</li>
+            <li><strong>Refractarios:</strong> Ladrillos de alúmina, magnesia y sílice para revestimiento de altos hornos siderúrgicos.</li>
+            <li><strong>Cementos y abrasivos:</strong> Clínker hidráulico para construcción y carburo de silicio (SiC) para desbaste.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Cerámicos Avanzados (Ingeniería)</h3>
+          <ul>
+            <li><strong>Alúmina (Al₂O₃) y Circona (ZrO₂):</strong> Prótesis biomédicas, herramientas de corte y recubrimientos de barrera térmica en turbinas.</li>
+            <li><strong>Nitruro de Silicio (Si₃N₄):</strong> Rodamientos de alta velocidad y componentes automotrices ligeros.</li>
+            <li><strong>Electrocerámicos:</strong> Titanato de bario (BaTiO₃) en capacitores multicapa y sensores piezoeléctricos.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Vidrios Especiales y Vitrocerámicos</h3>
+          <ul>
+            <li><strong>Vidrio sodocálcico:</strong> 90 % de la producción comercial (ventanas y envases).</li>
+            <li><strong>Borosilicato (Pyrex):</strong> Bajo coeficiente de expansión térmica; resistente al choque térmico en laboratorio.</li>
+            <li><strong>Vidrio templado:</strong> Esfuerzos residuales superficiales de compresión que cuadruplican su resistencia mecánica.</li>
+            <li><strong>Vitrocerámicos:</strong> Cristalización controlada mediante agentes nucleantes (ej. placas de cocina de expansión casi nula).</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Procesamiento: Sinterización vs. Temple</h3>
+          <p>
+            <strong>Sinterización:</strong> Consolidación de polvos cerámicos compactados mediante difusión atómica por debajo del punto de fusión, reduciendo la porosidad y aumentando la densidad.
+          </p>
+          <p style="margin-top: 0.6rem;">
+            <strong>Temple térmico del vidrio:</strong> Calentamiento por encima de Tg seguido de enfriamiento brusco con chorros de aire; la superficie solidifica primero y queda en compresión cuando el interior se contrae.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="test" class="panel">
+      <div class="card" style="margin-bottom: 1rem;">
+        <h2>Muestra de Preguntas — Evaluación de Cerámicos y Vítreos</h2>
+        <p>Selecciona una respuesta en cada pregunta para verificar tu comprensión y recibir retroalimentación inmediata.</p>
+      </div>
+
+      <div id="quizContainer"></div>
+
+      <div class="quiz-summary">
+        <div id="scoreText" style="font-size: 1.15rem; font-weight: 700;">Puntaje actual: 0 / 6</div>
+        <p style="color: var(--muted); font-size: 0.9rem; margin-top: 0.25rem;">
+          Autores: Juan David Cáceres Ramírez (1981516) y Salomé Lara Blanco (1981492)
+        </p>
+        <button class="reset-btn" onclick="resetQuiz()">Reiniciar Test</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function showTab(tabId, btn) {
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('nav.tabs button').forEach(b => b.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      btn.classList.add('active');
+      if (tabId === 'simulador') {
+        drawAtomic();
+        updateThermo();
+      }
+    }
+
+    let currentStructure = 'crystal';
+    function setStructure(mode) {
+      currentStructure = mode;
+      document.getElementById('btnCrystal').classList.toggle('selected', mode === 'crystal');
+      document.getElementById('btnGlass').classList.toggle('selected', mode === 'glass');
+      document.getElementById('structureDesc').innerHTML = mode === 'crystal'
+        ? '<strong>Orden de largo alcance:</strong> Tetraedros SiO₄ dispuestos en patrón hexagonal periódico.'
+        : '<strong>Red aleatoria continua:</strong> Enlaces Si-O con ángulos variables sin periodicidad cristalina.';
+      drawAtomic();
+    }
+
+    function drawAtomic() {
+      const canvas = document.getElementById('atomicCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const nodes = [];
+      const cols = 6;
+      const rows = 4;
+      const spacingX = 65;
+      const spacingY = 52;
+      const offsetX = 55;
+      const offsetY = 45;
+
+      const jitter = [
+        [0,0],[12,-9],[-10,11],[14,6],[-12,-8],[9,10],
+        [-11,8],[13,-11],[-8,-9],[10,12],[-14,5],[8,-10],
+        [9,11],[-13,-7],[11,9],[-9,13],[12,-12],[-10,-6],
+        [-12,-9],[10,10],[-14,7],[11,-8],[-8,12],[13,-5]
+      ];
+
+      let idx = 0;
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          let x = offsetX + c * spacingX + (r % 2 === 1 ? 18 : 0);
+          let y = offsetY + r * spacingY;
+          if (currentStructure === 'glass') {
+            x += jitter[idx % jitter.length][0];
+            y += jitter[idx % jitter.length][1];
+          }
+          nodes.push({ x, y, r, c });
+          idx++;
+        }
+      }
+
+      ctx.strokeStyle = 'rgba(148, 163, 184, 0.55)';
+      ctx.lineWidth = 2;
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx = nodes[i].x - nodes[j].x;
+          const dy = nodes[i].y - nodes[j].y;
+          const dist = Math.hypot(dx, dy);
+          if (dist < 78) {
+            ctx.beginPath();
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.stroke();
+
+            const mx = (nodes[i].x + nodes[j].x) / 2;
+            const my = (nodes[i].y + nodes[j].y) / 2;
+            ctx.fillStyle = '#ef4444';
+            ctx.beginPath();
+            ctx.arc(mx, my, 4.2, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+      }
+
+      nodes.forEach(n => {
+        ctx.fillStyle = '#38bdf8';
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, 7.5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = '#020617';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+      });
+
+      ctx.fillStyle = '#38bdf8';
+      ctx.beginPath(); ctx.arc(20, 232, 5, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#cbd5e1';
+      ctx.font = '12px sans-serif';
+      ctx.fillText('Silicio (Si⁴⁺)', 32, 236);
+
+      ctx.fillStyle = '#ef4444';
+      ctx.beginPath(); ctx.arc(130, 232, 4.5, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#cbd5e1';
+      ctx.fillText('Oxígeno (O²⁻)', 142, 236);
+    }
+
+    function updateThermo() {
+      const temp = Number(document.getElementById('tempSlider').value);
+      document.getElementById('tempVal').textContent = temp;
+
+      const stateEl = document.getElementById('thermoState');
+      if (temp > 1150) {
+        stateEl.innerHTML = 'Estado: <strong>Líquido fundido</strong> (alta movilidad atómica)';
+      } else if (temp > 650) {
+        stateEl.innerHTML = 'Estado: <strong>Líquido subenfriado / Cristalización (Tm ≈ 1150 °C)</strong>';
+      } else {
+        stateEl.innerHTML = 'Estado: <strong>Sólido rígido (debajo de Tg ≈ 650 °C)</strong> — Vidrio o Cristal';
+      }
+
+      const canvas = document.getElementById('thermoCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      ctx.strokeStyle = '#64748b';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(45, 20);
+      ctx.lineTo(45, 195);
+      ctx.lineTo(415, 195);
+      ctx.stroke();
+
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '11px sans-serif';
+      ctx.fillText('Volumen específico', 12, 14);
+      ctx.fillText('Temperatura (°C)', 325, 215);
+
+      ctx.strokeStyle = '#f59e0b';
+      ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      ctx.moveTo(395, 35);
+      ctx.lineTo(280, 82);
+      ctx.lineTo(165, 130);
+      ctx.lineTo(65, 152);
+      ctx.stroke();
+
+      ctx.strokeStyle = '#38bdf8';
+      ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      ctx.moveTo(280, 82);
+      ctx.lineTo(280, 148);
+      ctx.lineTo(65, 182);
+      ctx.stroke();
+
+      ctx.fillStyle = '#f59e0b';
+      ctx.fillText('Vidrio (Tg)', 95, 128);
+      ctx.fillStyle = '#38bdf8';
+      ctx.fillText('Cristal (Tm)', 210, 172);
+
+      const xPos = 65 + ((temp - 200) / 1400) * 330;
+      ctx.strokeStyle = '#22c55e';
+      ctx.setLineDash([4, 4]);
+      ctx.beginPath();
+      ctx.moveTo(xPos, 25);
+      ctx.lineTo(xPos, 195);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
+
+    const quizData = [
+      {
+        q: '1. ¿Cuál es la principal razón por la que los materiales cerámicos presentan comportamiento frágil a temperatura ambiente?',
+        options: [
+          'Tienen enlaces metálicos débiles que se rompen con facilidad.',
+          'Sus enlaces iónicos y covalentes restringen el movimiento de dislocaciones.',
+          'Poseen una densidad de electrones libres demasiado elevada.'
+        ],
+        answer: 1,
+        explanation: 'Correcto: los enlaces fuertes y direccionales (covalentes) o con repulsión electrostática (iónicos) impiden el deslizamiento plástico antes de la fractura.'
+      },
+      {
+        q: '2. ¿Qué define estructuralmente a un material vítreo frente a un cerámico cristalino?',
+        options: [
+          'La ausencia de ordenamiento atómico periódico de largo alcance (estructura amorfa).',
+          'La presencia exclusiva de átomos metálicos en su red.',
+          'Un punto de fusión exacto y abrupto al calentarse.'
+        ],
+        answer: 0,
+        explanation: 'Correcto: los vidrios conservan una red atómica desordenada propia del líquido al enfriarse por debajo de la temperatura de transición vítrea (Tg).'
+      },
+      {
+        q: '3. ¿Qué función cumplen los óxidos modificadores de red (como Na₂O o CaO) en la fabricación del vidrio sodocálcico?',
+        options: [
+          'Aumentan el punto de fusión por encima de 2500 °C.',
+          'Rompen puentes Si-O-Si, reduciendo la viscosidad y facilitando el moldeo.',
+          'Convierten el vidrio en un conductor eléctrico metálico.'
+        ],
+        answer: 1,
+        explanation: 'Correcto: los cationes Na⁺ y Ca²⁺ generan oxígenos no puenteantes, disminuyendo la viscosidad del fundido para poder trabajarlo a menores temperaturas.'
+      },
+      {
+        q: '4. ¿En qué consiste el proceso de sinterización en cerámicos?',
+        options: [
+          'Fundir completamente el material y enfriarlo en agua helada.',
+          'Consolidar partículas de polvo compacto mediante difusión atómica por debajo de Tm.',
+          'Recubrir una pieza metálica con pintura polimérica.'
+        ],
+        answer: 1,
+        explanation: 'Correcto: la sinterización une las partículas por difusión en estado sólido, eliminando porosidad y densificando la pieza sin fundirla.'
+      },
+      {
+        q: '5. ¿Cómo mejora el temple térmico la resistencia mecánica de un vidrio?',
+        options: [
+          'Induciendo esfuerzos residuales de compresión en la superficie y tracción en el interior.',
+          'Eliminando todo el silicio de la superficie del vidrio.',
+          'Transformando todo el vidrio en grafito cristalino.'
+        ],
+        answer: 0,
+        explanation: 'Correcto: cualquier grieta superficial debe vencer primero los esfuerzos de compresión antes de propagarse, aumentando hasta 4 veces su resistencia.'
+      },
+      {
+        q: '6. ¿Por qué el vidrio de borosilicato (Pyrex) resiste mucho mejor el choque térmico que el vidrio común?',
+        options: [
+          'Porque tiene un coeficiente de expansión térmica muy bajo.',
+          'Porque es completamente elástico como el caucho.',
+          'Porque no contiene ningún tipo de óxido.'
+        ],
+        answer: 0,
+        explanation: 'Correcto: al dilatarse y contraerse muy poco con los cambios bruscos de temperatura, se minimizan los esfuerzos térmicos internos que causan fractura.'
+      }
+    ];
+
+    let score = 0;
+    const answered = new Set();
+
+    function renderQuiz() {
+      const container = document.getElementById('quizContainer');
+      container.innerHTML = '';
+      quizData.forEach((item, qIndex) => {
+        const div = document.createElement('div');
+        div.className = 'quiz-item';
+        div.innerHTML = `
+          <div class="quiz-q">${item.q}</div>
+          <div class="options" id="opts-${qIndex}">
+            ${item.options.map((opt, oIndex) => `
+              <button class="option-btn" onclick="checkAnswer(${qIndex}, ${oIndex}, this)">${opt}</button>
+            `).join('')}
+          </div>
+          <div class="feedback" id="fb-${qIndex}">${item.explanation}</div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function checkAnswer(qIndex, oIndex, btn) {
+      if (answered.has(qIndex)) return;
+      answered.add(qIndex);
+
+      const item = quizData[qIndex];
+      const buttons = document.querySelectorAll(`#opts-${qIndex} .option-btn`);
+      buttons.forEach((b, idx) => {
+        b.disabled = true;
+        if (idx === item.answer) b.classList.add('correct');
+      });
+
+      if (oIndex === item.answer) {
+        score++;
+      } else {
+        btn.classList.add('wrong');
+      }
+
+      document.getElementById(`fb-${qIndex}`).style.display = 'block';
+      document.getElementById('scoreText').textContent = `Puntaje actual: ${score} / ${quizData.length}`;
+    }
+
+    function resetQuiz() {
+      score = 0;
+      answered.clear();
+      document.getElementById('scoreText').textContent = `Puntaje actual: 0 / ${quizData.length}`;
+      renderQuiz();
+    }
+
+    renderQuiz();
+    drawAtomic();
+    updateThermo();
+  </script>
+</body>
+</html>
+
